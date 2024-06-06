@@ -1,0 +1,146 @@
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <!-- <script type='application/javascript' src='/path/to/fastclick.js'></script> -->
+  </head>
+  <body>
+    <!-- <input type="button" onclick="window.startPicker(testConfig, config, initialState)" value="startPicker" /> -->
+    <!-- <input type="button" onclick="window.startPicker(testConfig2, config2, initialState2)" value="startPicker2" /> -->
+    <div id="inline" style="width:800px;height:500px;"></div>
+    <div id="inline2" style="width:800px;height:500px;"></div>
+    <script src="/build/test_helper.js"></script>
+    <script>
+      // if ('addEventListener' in document) {
+      //   document.addEventListener('DOMContentLoaded', function() {
+      //     FastClick.attach(document.body);
+      //   }, false);
+      // }
+
+      const testConfig = {
+        // default
+        // apikey: 'AsFg2DETrTfu8pDm6hS1cz', // piotr.choluj@filestack.com - global 14 days bucket for picker testing
+        // cname: 'fs.jibjab.com',
+        sessionCache: false,
+
+        // test
+        // apikey: 'AHvhedybhQMqZOqRvZquez', // josh@filestack.com
+        // cname: 'fs.jibjab.com',
+
+        // staging
+        // apikey: 'A9LwQKhCtQUWb6GX4xoFDz',
+        apikey: 'ARTc41MxTbGoqqPcuAAtDz',
+        // cname: 'fs.stg.filestack.org',
+
+        // supportEmail: { enabled: true, email: 'test@mail.com' },
+      };
+      const testConfig2 = {
+        sessionCache: false,
+        // staging
+        apikey: 'ARTc41MxTbGoqqPcuAAtDz'
+      };
+
+    //   const customSource = {
+    //     label: 'PwC Custom',
+    //     name: 'PwC-Custom',
+    //     // icon: '<div style="max-width:100%;"><img src="https://www.pilcher.london/wp-content/uploads/2020/11/pwc.svg"></div>',
+    //     // icon: '<img src="files/pwc(1).svg">',
+    //     // icon: '<img width="36" src="files/pwc.svg">',
+    //     // icon: '<img width="36" src="https://www.pilcher.london/wp-content/uploads/2020/11/pwc.svg">',
+    //     // icon: '<span width="36" style="background-image: url(files/pwc.svg)">',
+    //     // icon: '<svg height="36" width="36" viewBox="0 0 36 36" xmlns="http://www.w3.org/2000/svg"><g fill-rule="nonzero"><g stroke-width=".263506"><path d="m315.90664509 161.344987318h95.84635491v24.5324086h-95.84635491z" fill="#e669a2"/><path d="m315.90664509 124.519496806h83.397277446v61.357899112h-83.397277446z" fill="#f3be26"/><path d="m315.90664509 100h48.942023404v85.877395918h-48.942023404z" fill="#ee9c34"/><path d="m315.90664509 109.582659196h58.570532644v76.294736722h-58.570532644z" fill="#f3bc87"/><path d="m315.892942778 109.597152026h48.95019209v76.272602218h-48.95019209z" fill="#e3721c"/><path d="m266.828916096 185.877395918h49.077465488v12.26752183h-49.077465488z" fill="#ad1b02"/><path d="m315.892942778 124.506058h58.612166592v61.363432738h-58.612166592z" fill="#e88d14"/><path d="m315.892942778 124.506058h48.95019209v61.363432738h-48.95019209z" fill="#d85604"/><path d="m315.90664509 149.049270346h30.605958394v36.827862066h-30.605958394z" fill="#c14303"/><path d="m315.892942778 161.36264222h83.4391749v24.507112024h-83.4391749z" fill="#db4e18"/><path d="m315.892942778 161.36264222h58.612166592v24.507112024h-58.612166592z" fill="#d1390d"/><path d="m315.892942778 161.36264222h48.95019209v24.507112024h-48.95019209z" fill="#c22303"/><path d="m315.892942778 161.36264222h30.64970039v24.507112024h-30.64970039z" fill="#ad1b02"/></g><g transform="matrix(.263506 0 0 .263506 114.386742506 185.321134752)"><path d="m805.259 177.456c-31.69 5.634-48.591 29.578-48.591 71.127 0 42.254 22.535 70.423 55.634 70.423 16.197 0 30.281-5.634 59.859-20.423v34.507c-35.916 16.902-57.042 21.127-85.211 21.127-31.691 0-54.226-7.747-71.831-26.761-18.31-18.309-28.169-42.253-28.169-69.718 0-59.859 45.07-101.408 110.563-101.408 42.958 0 73.239 20.422 73.239 49.295 0 19.014-14.084 32.395-34.507 32.395-10.563 0-19.014-3.521-30.986-9.859"/><path d="m646.809 257.738c28.873-35.915 39.436-50.704 39.436-68.31 0-17.605-14.084-33.098-33.802-33.098-11.268 0-21.831 6.338-26.761 11.971v73.944l-47.183 63.38v-143.662h-45.071l-74.647 123.24v-123.24h-25.353l-68.309 15.493v17.606l37.324 3.521v152.817h47.183l71.831-118.31v118.31h52.817"/><path d="m222.161 327.456h10.563c38.028 0 59.155-23.239 59.155-69.718 0-38.732-16.901-59.859-48.591-59.859-4.226 0-10.564.704-21.127 2.817zm0 83.099 30.986 7.042v17.606h-121.831v-17.606l28.169-7.042v-212.676h-30.986v-17.606l73.944-22.535h19.718v25.352c34.507-21.127 46.479-24.648 64.789-24.648 40.845 0 71.831 38.028 71.831 90.845 0 60.564-41.55 102.113-104.93 102.113-7.042 0-19.014-.704-31.69-1.408"/></g></g></svg>',
+    //     // icon: '<svg height="36" viewBox="0 0 36 36" width="36" xmlns="http://www.w3.org/2000/svg"><g fill="none" fill-rule="evenodd"><circle cx="18" cy="18" fill="#eee" r="18"/><path d="m9.9 18c0-1.71 1.39-3.1 3.1-3.1h4v-1.9h-4c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-1.9h-4c-1.71 0-3.1-1.39-3.1-3.1zm4.1 1h8v-2h-8zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4v1.9h4c2.76 0 5-2.24 5-5s-2.24-5-5-5z" fill="#000" fill-opacity=".7"/></g></svg>',
+
+    //     // icon: 'pwc.svg',
+    //     //icon: 'https://www.pilcher.london/wp-content/uploads/2020/11/pwc.svg',
+    //     //icon: '<span style="background-image: url(pwc.svg);">',
+    //     icon: '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="36" height="27pt" viewBox="0 0 36 27" version="1.1"><g id="surface1"><path style=" stroke:none;fill-rule:nonzero;fill:rgb(90.196078%,41.176471%,63.529412%);fill-opacity:1;" d="M 36 11.59375 L 22.90625 11.59375 L 22.90625 8.28125 L 36 8.28125 Z M 36 11.59375 "/><path style=" stroke:none;fill-rule:nonzero;fill:rgb(95.294118%,74.509804%,14.901961%);fill-opacity:1;" d="M 34.300781 11.59375 L 22.90625 11.59375 L 22.90625 3.308594 L 34.300781 3.308594 Z M 34.300781 11.59375 "/><path style=" stroke:none;fill-rule:nonzero;fill:rgb(93.333333%,61.176471%,20.392157%);fill-opacity:1;" d="M 29.59375 11.59375 L 22.90625 11.59375 L 22.90625 0 L 29.59375 0 Z M 29.59375 11.59375 "/><path style=" stroke:none;fill-rule:nonzero;fill:rgb(95.294118%,73.72549%,52.941176%);fill-opacity:1;" d="M 30.90625 11.59375 L 22.90625 11.59375 L 22.90625 1.292969 L 30.90625 1.292969 Z M 30.90625 11.59375 "/><path style=" stroke:none;fill-rule:nonzero;fill:rgb(89.019608%,44.705882%,10.980392%);fill-opacity:1;" d="M 22.902344 1.296875 L 22.902344 11.59375 L 29.589844 11.59375 L 29.589844 1.296875 Z M 22.902344 1.296875 "/><path style=" stroke:none;fill-rule:nonzero;fill:rgb(67.843137%,10.588235%,0.784314%);fill-opacity:1;" d="M 16.199219 11.59375 L 22.90625 11.59375 L 22.90625 13.25 L 16.199219 13.25 Z M 16.199219 11.59375 "/><path style=" stroke:none;fill-rule:nonzero;fill:rgb(90.980392%,55.294118%,7.843137%);fill-opacity:1;" d="M 22.902344 3.308594 L 22.902344 11.59375 L 30.910156 11.59375 L 30.910156 3.308594 Z M 22.902344 3.308594 "/><path style=" stroke:none;fill-rule:nonzero;fill:rgb(84.705882%,33.72549%,1.568627%);fill-opacity:1;" d="M 22.902344 3.308594 L 22.902344 11.59375 L 29.589844 11.59375 L 29.589844 3.308594 Z M 22.902344 3.308594 "/><path style=" stroke:none;fill-rule:nonzero;fill:rgb(75.686275%,26.27451%,1.176471%);fill-opacity:1;" d="M 27.085938 11.59375 L 22.90625 11.59375 L 22.90625 6.621094 L 27.085938 6.621094 Z M 27.085938 11.59375 "/><path style=" stroke:none;fill-rule:nonzero;fill:rgb(85.882353%,30.588235%,9.411765%);fill-opacity:1;" d="M 22.902344 8.285156 L 22.902344 11.59375 L 34.304688 11.59375 L 34.304688 8.285156 Z M 22.902344 8.285156 "/><path style=" stroke:none;fill-rule:nonzero;fill:rgb(81.960784%,22.352941%,5.098039%);fill-opacity:1;" d="M 22.902344 8.285156 L 22.902344 11.59375 L 30.910156 11.59375 L 30.910156 8.285156 Z M 22.902344 8.285156 "/><path style=" stroke:none;fill-rule:nonzero;fill:rgb(76.078431%,13.72549%,1.176471%);fill-opacity:1;" d="M 22.902344 8.285156 L 22.902344 11.59375 L 29.589844 11.59375 L 29.589844 8.285156 Z M 22.902344 8.285156 "/><path style=" stroke:none;fill-rule:nonzero;fill:rgb(67.843137%,10.588235%,0.784314%);fill-opacity:1;" d="M 22.902344 8.285156 L 22.902344 11.59375 L 27.089844 11.59375 L 27.089844 8.285156 Z M 22.902344 8.285156 "/><path style=" stroke:none;fill-rule:nonzero;fill:rgb(0%,0%,0%);fill-opacity:1;" d="M 24.363281 17.832031 C 23.222656 18.03125 22.613281 18.882812 22.613281 20.359375 C 22.613281 21.863281 23.425781 22.867188 24.617188 22.867188 C 25.199219 22.867188 25.707031 22.664062 26.773438 22.140625 C 26.773438 23.367188 26.773438 23.367188 26.773438 23.367188 C 25.480469 23.96875 24.71875 24.117188 23.703125 24.117188 C 22.5625 24.117188 21.753906 23.84375 21.117188 23.167969 C 20.460938 22.515625 20.105469 21.664062 20.105469 20.6875 C 20.105469 18.558594 21.726562 17.078125 24.085938 17.078125 C 25.632812 17.078125 26.722656 17.804688 26.722656 18.832031 C 26.722656 19.507812 26.214844 19.984375 25.480469 19.984375 C 25.097656 19.984375 24.792969 19.859375 24.363281 19.632812 "/><path style=" stroke:none;fill-rule:nonzero;fill:rgb(0%,0%,0%);fill-opacity:1;" d="M 18.660156 20.6875 C 19.699219 19.410156 20.078125 18.882812 20.078125 18.257812 C 20.078125 17.628906 19.570312 17.078125 18.863281 17.078125 C 18.457031 17.078125 18.074219 17.304688 17.898438 17.503906 C 17.898438 20.136719 17.898438 20.136719 17.898438 20.136719 C 16.199219 22.390625 16.199219 22.390625 16.199219 22.390625 C 16.199219 17.28125 16.199219 17.28125 16.199219 17.28125 C 14.578125 17.28125 14.578125 17.28125 14.578125 17.28125 C 11.890625 21.664062 11.890625 21.664062 11.890625 21.664062 C 11.890625 17.28125 11.890625 17.28125 11.890625 17.28125 C 10.976562 17.28125 10.976562 17.28125 10.976562 17.28125 C 8.519531 17.832031 8.519531 17.832031 8.519531 17.832031 C 8.519531 18.457031 8.519531 18.457031 8.519531 18.457031 C 9.863281 18.582031 9.863281 18.582031 9.863281 18.582031 C 9.863281 24.019531 9.863281 24.019531 9.863281 24.019531 C 11.5625 24.019531 11.5625 24.019531 11.5625 24.019531 C 14.144531 19.808594 14.144531 19.808594 14.144531 19.808594 C 14.144531 24.019531 14.144531 24.019531 14.144531 24.019531 C 16.046875 24.019531 16.046875 24.019531 16.046875 24.019531 "/><path style=" stroke:none;fill-rule:nonzero;fill:rgb(0%,0%,0%);fill-opacity:1;" d="M 3.371094 23.167969 C 3.574219 23.167969 3.625 23.167969 3.753906 23.167969 C 5.121094 23.167969 5.882812 22.339844 5.882812 20.6875 C 5.882812 19.308594 5.273438 18.558594 4.132812 18.558594 C 3.980469 18.558594 3.753906 18.582031 3.371094 18.65625 Z M 3.371094 26.121094 C 4.488281 26.375 4.488281 26.375 4.488281 26.375 C 4.488281 27 4.488281 27 4.488281 27 C 0.101562 27 0.101562 27 0.101562 27 C 0.101562 26.375 0.101562 26.375 0.101562 26.375 C 1.117188 26.121094 1.117188 26.121094 1.117188 26.121094 C 1.117188 18.558594 1.117188 18.558594 1.117188 18.558594 C 0 18.558594 0 18.558594 0 18.558594 C 0 17.929688 0 17.929688 0 17.929688 C 2.660156 17.128906 2.660156 17.128906 2.660156 17.128906 C 3.371094 17.128906 3.371094 17.128906 3.371094 17.128906 C 3.371094 18.03125 3.371094 18.03125 3.371094 18.03125 C 4.613281 17.28125 5.046875 17.15625 5.703125 17.15625 C 7.175781 17.15625 8.289062 18.507812 8.289062 20.386719 C 8.289062 22.539062 6.792969 24.019531 4.511719 24.019531 C 4.257812 24.019531 3.828125 23.992188 3.371094 23.96875 "/></g></svg>',
+
+    //     mounted: (element, actions) => {
+    //         console.log('mounted',element, actions);
+    //     },
+    //     unmounted: (element) => {
+    //         console.log('unmounted',element);
+    //     }
+    // }
+
+    const config = {
+        // onUploadDone: res => console.log('result ->', res),
+        // uploadInBackground: false,
+        // maxFiles: 3,
+        // displayMode: 'overlay',
+        displayMode: 'inline',
+        container: document.querySelector('#inline'),
+        // dropPane: {
+        //   overlay: true,
+        //   showProgress: true,
+        //   showIcon: true
+        // },
+        // imageDim: [800, 600],
+        // accept: 'image/*',
+        maxFiles: 20,
+        imageMin:[200, 200],
+        imageMax: [5000, 5000],
+        supportEmail: 'example@your-domain.com',
+        uploadConfig: {
+          tags: {
+            userId: '123',
+            title: 'asd',
+            dynamic: (file) => { return 'DYNAMIC_TAG' + file.name;}
+            // dynamic: () => { return 'DYNAMIC_TAG';}
+          },
+        },
+        // transformations: {crop: {force: true}},
+        // supportEmail: 'example@your-domain.com',
+
+        // viewType: 'grid',
+        uploadInBackground: false,
+        onUploadDone: (res) => {
+          const pre = document.createElement('pre');
+          pre.style = 'border: 1px solid red; padding: 5p; background-color: #ccc;margin-bottom:5px';
+          pre.prepend(JSON.stringify(res, null, 2));
+          document.body.appendChild(pre);
+        },
+        // onFileUploadProgress: (res, prog) => console.log(res, prog),
+        // // onFileSelected(file) {
+        // //   if (file.size > 1000 * 1000) {
+        // //     throw new Error('File too big, select something smaller than 1MB');
+        // //   }
+        // // },
+        // onFileCropped: (croppedData) => {
+        //   // console.log(croppedData);
+        // },
+        // fromSources: ['local_file_system', 'webcam'],
+        fromSources: ['local_file_system', 'url', 'imagesearch', 'facebook', 'instagram', 'tint', 'googledrive', 'dropbox', 'audio', 'video', 'webcam'],
+        // fromSources: ['local_file_system', 'clouddrive', 'url', 'imagesearch', 'facebook', 'instagram', 'tint', 'googledrive', 'dropbox', 'audio', 'video', 'webcam'],
+      };
+      const config2 = {
+        displayMode: 'dropPane',
+        dropPane: {
+          overlay: true,
+          showProgress: true,
+          showIcon: true
+        },
+        imageMax: [300, 300],
+        supportEmail: 'example@your-domain.com',
+        container: document.querySelector('#inline2'),
+        onUploadDone: (res) => {
+          const pre = document.createElement('pre');
+          pre.style = 'border: 1px solid red; padding: 5p; background-color: #ccc;margin-bottom:5px';
+          pre.prepend(JSON.stringify(res, null, 2));
+          document.body.appendChild(pre);
+        },
+        // onFileUploadProgress: (res, prog) => console.log(res, prog),
+        // // onFileSelected(file) {
+        // //   if (file.size > 1000 * 1000) {
+        // //     throw new Error('File too big, select something smaller than 1MB');
+        // //   }
+        // // },
+
+        fromSources: ['local_file_system', 'webcam'],
+      };
+      const initialState = {};
+      const initialState2 = {};
+      window.startPicker(testConfig, config, initialState);
+    </script>
+  </body>
+</html>
